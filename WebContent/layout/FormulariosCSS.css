@@ -1,0 +1,165 @@
+iframe {
+    display: block;   
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+ .Registro{
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background:#023877 ;
+    padding: 30px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+    
+}
+
+.Registro h4{
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-top:10px;
+}
+
+.controls{
+    width: 100%;
+    height: 10px;
+    background: #2e4f70;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 13px;
+    border: 1px solid #0074C7;
+    font-family: 'calibri';
+    font-size: 18px;
+    color:white;
+}
+.controls .ui-selectonemenu-label {
+    color: white; /* Color del texto cuando está seleccionado */
+}
+.letra{
+	font-size: 18px
+}
+
+/*----------------------------------------boton prueba*/
+.botons{
+    width:auto;
+    height:30px;
+    background: linear-gradient(to left top, #0074C7 50%, #0074C7 50%);
+    border-style: none;
+    color:#fff;
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-family: 'calibri';
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    padding: 2px;
+    border : 2px;
+    overflow: hidden;
+    transition: all .5s;
+    box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+    margin: 0 5px;
+    margin-top:10px;
+    
+}
+.botons span{
+    position: absolute;
+    display: block;
+}
+.botons span:nth-child(1){
+    height: 3px;
+    width:90px;
+    top:0px;
+    left:-90px;
+    background: linear-gradient(to right, rgba(0,0,0,0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span1 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes span1{
+    0%{
+        left:-200px
+    }
+    100%{
+        left:200px;
+    }
+}
+.botons span:nth-child(2){
+    height: 70px;
+    width: 3px;
+    top:-70px;
+    right:0px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #f6e58d);
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span2 2s linear infinite;
+    animation-delay: 2s;
+}
+@keyframes span2{
+    0%{
+        top:-70px;
+    }
+    100%{
+        top:70px;
+    }
+}
+.botons span:nth-child(3){
+    height:3px;
+    width:200px;
+    right:-200px;
+    bottom: 0px;
+    background: linear-gradient(to left, rgba(0,0,0,0), #f6e58d);
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    animation: span3 2s linear infinite;
+    animation-delay: 3s;
+}
+@keyframes span3{
+    0%{
+        right:-200px;
+    }
+    100%{
+        right: 200px;
+    }
+}
+
+.botons span:nth-child(4){
+    height:70px;
+    width:3px;
+    bottom:-70px;
+    left:0px;
+    background: linear-gradient(to top, rgba(0,0,0,0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+    animation: span4 2s linear infinite;
+    animation-delay: 4s;
+}
+@keyframes span4{
+    0%{
+        bottom: -70px;
+    }
+    100%{
+        bottom:70px;
+    }
+}
+
+.botons:hover{
+    transition: all .5s;
+    transform: rotate(-3deg) scale(1.1);
+    box-shadow: 0px 3px 5px rgba(0,0,0,.4);
+}
+.botons:hover span{
+    animation-play-state: paused;
+}
+
+
+

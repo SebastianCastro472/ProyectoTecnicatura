@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core_2_0">
+<head>
+	<title>Administrador de terneras</title>
+	<link rel="stylesheet" href="layout/PantallaPrincipalCSS.css" type="text/css" />
+</head>
+<body>
+    <div id="header">
+        <img src="layout/imagenes/Logo.png" alt="Logo de Mi empresa" />
+        <h1>GESTION DE TERNERAS</h1>
+    </div>
+    <h:form>
+        <div id="buttons">
+            <h:commandButton id="button1" value="GESTION DE TERNERAS" action="Gestion_de_terneras" />
+            <h:commandButton id="button2" value="GESTION DE ALIMENTOS" action="Gestion_de_alimentos" />
+            <h:commandButton id="button3" value="GESTION DE USUARIOS" action="Gestion_de_usuarios" />
+            <h:commandButton id="button4" value="GESTION DE INFORMES" action="Gestion_de_informes"/>
+            <h:commandButton id="button5" value="REGISTROS" action="Gestion_de_registros" />
+            <h:commandButton id="button7" value="GESTION DE DATOS HISTORICOS" action="Gestion_de_datos_historicos" />
+        </div>
+        
+        <div id="seccion-listado">
+            <object type="text/html" data="listaUsuarios.xhtml" width="100%" height="100%"></object>
+         </div>
+       
+    </h:form>
+</body>
+</html>

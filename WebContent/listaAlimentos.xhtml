@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head name="title">
+	<c:set var="title" value="Listado alimentos" scope="request" />
+	<link rel="stylesheet" type="text/css" href="layout/ListadoCSS.css" />
+	<h:outputStylesheet library="primefaces" name="themes/cupertino/theme.css" />
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<h:outputScript library="primefaces" name="primefaces.js" />
+</h:head>
+<body>
+
+
+	<div class="tablaYTitulo">
+
+<h1>LISTADO DE ALIMENTOS</h1>
+<h:form id="Terneras">
+		<div class="tablaYTitulo">
+		
+		<p:outputLabel value="Filtrar por :" class="letra" />
+<p:selectOneMenu value="#{gestionAlimentos.filtro}">
+    <f:selectItem itemValue="marca" itemLabel="Marca" />
+    <f:selectItem itemValue="nombre" itemLabel="Nombre" />
+    <f:selectItem itemValue="costo" itemLabel="Costo" />
+    <f:selectItem itemValue="cantidad" itemLabel="Cantidad" />
+</p:selectOneMenu>
+<br></br>
+<p:inputText id="Valor" class="controls" value="#{gestionAlimentos.valor}" />
+<h:commandButton class="botons" value="Filtrar"
+				action="#{gestionAlimentos.seleccionarAlimentos}" />
+				</div>
+		<p:dataTable value="#{gestionAlimentos.alimentosSeleccionados}"
+			var="alimento" styleClass="employeeTable"
+			headerClass="employeeTableHeader"
+			rowClasses="employeeTableOddRow,employeeTableEvenRow">
+		
+
+			<p:column sortBy="#{alimento.idAlimento}">
+				<f:facet name="header">ID</f:facet>    				
+      		#{alimento.idAlimento}
+   		</p:column>
+
+
+			<p:column sortBy="#{alimento.marca}">
+				<f:facet name="header">Marca</f:facet>    				
+      		#{alimento.marca}
+   		</p:column>
+
+			<p:column sortBy="#{alimento.nombre}">
+				<f:facet name="header">Nombre</f:facet>
+		      #{alimento.nombre}
+		</p:column>
+
+			<p:column sortBy="#{alimento.costo}">
+				<f:facet name="header">Costo</f:facet>
+      		#{alimento.costo}
+   		</p:column>
+
+			<p:column sortBy="#{alimento.cantidad}">
+				<f:facet name="header">Cantidad</f:facet>
+      		#{alimento.cantidad}
+		</p:column>
+
+			
+
+
+			<p:column>
+				<f:facet name="header">Ver Detalle</f:facet>
+				<h:link value="Ver detalle" outcome="AltaAlimento.xhtml">
+					<f:param name="id" value="${alimento.idAlimento}" />
+					<f:param name="modalidad" value="view" />
+
+				</h:link>
+			</p:column>
+			
+	
+
+
+
+		</p:dataTable>
+
+
+		<br />
+		
+			<h:commandButton class="botons" value="Listar Alimentos"
+				action="#{gestionAlimentos.seleccionarAlimentos}" />
+			<h:commandButton class="botons" value="Nuevo Alimento" action="#{gestionAlimento.reset}"/>
+		</h:form>
+	</div>
+</body>
+</html>

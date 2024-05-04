@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://java.sun.com/jsf/html"
+	xmlns:s="http://primefaces.org/ui">
+
+
+
+
+
+<h:head name="title">
+	<c:set var="title" value="Datos de Alimento" scope="request" />
+	<link rel="stylesheet" type="text/css" href="layout/FormulariosCSS.css" />
+</h:head>
+
+
+
+
+<body class="alta">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{gestionEnfermedad.id}" />
+		<f:viewParam name="modalidad" value="#{gestionEnfermedad.modalidad}" />
+		<f:event type="preRenderView"
+			listener="#{gestionEnfermedad.preRenderViewListener}" />
+	</f:metadata>
+
+
+	<p:messages id="messages" showDetail="true" globalOnly="true"
+		closable="true" />
+	<div class="Registro">
+		<h:form id="idDatosEnfermedad">
+
+            <h4>REGISTRAR ENFERMEDAD</h4>
+
+			<p:panelGrid columns="3">
+
+				<p:outputLabel value="ID ternera:" class="letra" />
+				<s:inputText id="idTernera" class="controls"
+					value="#{gestionEnfermedad.enfermedadSeleccionado.idTernera}"
+					  >
+					<f:validateRequired />
+				</s:inputText>
+				<p:message for="idTernera" style="color:red" detail="Debes ingresar un número" />
+			
+				
+				<p:outputLabel value="Nombre(enfermedad):" class="letra" />
+				<p:selectOneMenu id="nombre"  required="true"
+				requiredMessage="Seleccione un alimento"
+					value="#{gestionEnfermedad.enfermedadSeleccionado.nombre}"
+					>
+					<f:selectItem itemValue="Neumonía" itemLabel="Neumonía" />
+					<f:selectItem itemValue="Diarrea" itemLabel="Diarrea" />
+					<f:selectItem itemValue="Onfalitis" itemLabel="Onfalitis" />
+					<f:selectItem itemValue="Bichera" itemLabel="Bichera" />
+				</p:selectOneMenu>
+				<p:message for="nombre" style="font-size:10px; color:#A50000" />
+
+				<p:outputLabel value="Variante:" class="letra" />
+				<s:inputText id="variante" class="controls"
+					value="#{gestionEnfermedad.enfermedadSeleccionado.variante}"
+				  >
+				</s:inputText>
+				<p:message for="variante" style="color:red" />
+
+				
+
+				
+				<p:outputLabel value="Severidad:" class="letra" />
+				<p:selectOneMenu value="#{gestionEnfermedad.enfermedadSeleccionado.severidad}" >
+    			<f:selectItem itemValue="1" itemLabel="1" />
+   				 <f:selectItem itemValue="2" itemLabel="2" />
+   				  <f:selectItem itemValue="3" itemLabel="3" />
+				</p:selectOneMenu>
+				<p:message for="ipoDeParto" style="color:red" />
+
+							
+				
+				
+				<s:outputLabel value="Fecha Registro:" class="letra" />
+				<s:calendar id="fechaRegistro"  value="#{gestionEnfermedad.enfermedadSeleccionado.fechaRegistro}"
+   				  showOn="button" pattern="dd/MM/yy" />
+				<p:message for="fechaNacimiento" style="color:red" />
+				
+
+
+			</p:panelGrid>
+			<div class="boxSubmit">
+
+
+
+
+				<h:commandButton class="botons" value="Guardar"
+					action="#{gestionEnfermedad.salvarCambios}" />
+					 
+
+			</div>
+
+		</h:form>
+
+
+	</div>
+</body>
+</html>

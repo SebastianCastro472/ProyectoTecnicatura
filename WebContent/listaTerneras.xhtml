@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:s="http://primefaces.org/ui">
+
+<h:head name="title">
+	<c:set var="title" value="Listado usuarios" scope="request" />
+	<link rel="stylesheet" type="text/css" href="layout/ListadoCSS.css" />
+	<!-- Incluye los recursos de PrimeFaces -->
+	<h:outputStylesheet library="primefaces" name="themes/cupertino/theme.css" />
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<h:outputScript library="primefaces" name="primefaces.js" />
+</h:head>
+<body>
+	<div class="tablaYTitulo">
+		<h1>LISTADO TERNERAS</h1>
+		
+		<h:form id="Terneras">
+		<div class="tablaYTitulo">
+		
+		<p:outputLabel value="Filtrar por :" class="letra" />
+<p:selectOneMenu value="#{gestionTerneras.filtro}">
+<f:selectItem itemValue="idTernera" itemLabel="ID Ternera" />
+    <f:selectItem itemValue="idMadre" itemLabel="ID Madre" />
+    <f:selectItem itemValue="idPadre" itemLabel="ID Padre" />
+    <f:selectItem itemValue="raza" itemLabel="Raza" />
+    <f:selectItem itemValue="tipoDeParto" itemLabel="Tipo de parto" />
+    <f:selectItem itemValue="caravanaTambo" itemLabel="Caravana del tambo" />
+    <f:selectItem itemValue="caravanaSnig" itemLabel="Caravana Snig" />
+    <f:selectItem itemValue="pesoAlNacer" itemLabel="Peso" />
+    <f:selectItem itemValue="id_guachera" itemLabel="Guachera" />
+</p:selectOneMenu>
+<br></br>
+<p:inputText id="Valor" class="controls" value="#{gestionTerneras.valor}" />
+<h:commandButton class="botons" value="Filtrar"
+				action="#{gestionTerneras.seleccionarTerneras}" />
+				</div>
+		
+		<p:dataTable value="#{gestionTerneras.ternerasSeleccionados}"
+			var="ternera" styleClass="employeeTable"
+			headerClass="employeeTableHeader"
+			rowClasses="employeeTableOddRow,employeeTableEvenRow">
+
+			<!-- Agrega el atributo sortBy para habilitar la ordenación -->
+			<p:column sortBy="#{ternera.idTernera}">
+				<f:facet name="header">ID</f:facet>    				
+      			#{ternera.idTernera}
+   			</p:column>
+
+			<p:column sortBy="#{ternera.idMadre}">
+				<f:facet name="header">ID Madre</f:facet>    				
+      			#{ternera.idMadre}
+   			</p:column>
+
+			
+			<p:column sortBy="#{ternera.idPadre}">
+				<f:facet name="header">ID Padre</f:facet>    				
+      		#{ternera.idPadre}
+   		</p:column>
+
+			<p:column sortBy="#{ternera.raza}">
+				<f:facet name="header">Raza </f:facet>
+		      #{ternera.raza}
+		</p:column>
+
+			<p:column sortBy="#{ternera.tipoDeParto}">
+				<f:facet name="header">Tipo de Parto</f:facet>
+      		#{ternera.tipoDeParto}
+   		</p:column>
+
+			<p:column sortBy="#{ternera.caravanaTambo}">
+				<f:facet name="header">Caravana Tambo</f:facet>
+      		#{ternera.caravanaTambo}
+		</p:column>
+
+			<p:column sortBy="#{ternera.caravanaSnig}">
+				<f:facet name="header">Caravana SNIG</f:facet>
+      		#{ternera.caravanaSnig}
+		</p:column>
+
+			<p:column sortBy="#{ternera.pesoAlNacer}">
+				<f:facet name="header">Peso Al Nacer</f:facet>
+      		#{ternera.pesoAlNacer}
+		</p:column>
+
+			<p:column sortBy="#{ternera.fechaNacimiento}">
+    <f:facet name="header">Fecha Nacimiento</f:facet>
+    <p:outputLabel value="#{ternera.fechaNacimiento}">
+        <f:convertDateTime pattern="dd/MM/yy" />
+    </p:outputLabel>
+</p:column>
+
+			<p:column sortBy="#{ternera.id_guachera}">
+				<f:facet name="header">Guachera</f:facet>
+      		#{ternera.id_guachera}
+        </p:column>
+
+			<p:column>
+				<f:facet name="header">Ver Detalle</f:facet>
+				<h:link value="Ver detalle" outcome="AltaTernera.xhtml">
+					<f:param name="id" value="${ternera.idTernera}" />
+					<f:param name="modalidad" value="view" />
+				</h:link>
+			</p:column>
+		</p:dataTable>
+
+		<br />
+		
+			<h:commandButton class="botons" value="Listar terneras"
+				action="#{gestionTerneras.seleccionarTerneras}" />
+			<h:commandButton class="botons" value="Nueva Ternera" action="#{gestionTernera.reset}"> 
+			<f:param name="modalidad" value="insert" />
+				</h:commandButton>
+		</h:form>
+	</div>
+</body>
+</html>

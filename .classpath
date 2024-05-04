@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="JavaSource"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-12">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/WildFly 20.0 Runtime 3">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web;jpt.jpa;jst.jsf"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="Resources/javaee-api-8.0.jar"/>
+	<classpathentry kind="lib" path="JavaSource/lib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="JavaSource/lib/ojdbc.jar"/>
+	<classpathentry kind="lib" path="JavaSource/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="JavaSource/lib/poi-5.2.3.jar"/>
+	<classpathentry kind="lib" path="JavaSource/lib/poi-ooxml-3.9.jar"/>
+	<classpathentry kind="lib" path="JavaSource/com/capa3Persistencia/entities/Lib/jackson-annotations-2.12.7.jar"/>
+	<classpathentry kind="lib" path="JavaSource/com/capa3Persistencia/entities/Lib/jackson-core-2.12.7.jar"/>
+	<classpathentry kind="lib" path="JavaSource/com/capa3Persistencia/entities/Lib/jackson-databind-2.12.7.1.jar"/>
+	<classpathentry kind="lib" path="JavaSource/lib/jjwt-api-0.11.2.jar"/>
+	<classpathentry kind="lib" path="JavaSource/lib/jjwt-impl-0.11.2.jar"/>
+	<classpathentry kind="lib" path="JavaSource/lib/jjwt-jackson-0.11.2.jar"/>
+	<classpathentry kind="lib" path="JavaSource/com/capa3Persistencia/entities/Lib/unboundid-ldapsdk-5.1.1.jar"/>
+	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
+</classpath>

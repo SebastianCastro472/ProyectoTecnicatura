@@ -1,0 +1,76 @@
+:root {
+  --color-azul: #3b5998;
+  --color-gris: #c2c2c2;
+  --color-amarillo: #ffd700;
+}
+
+body {
+  font-family: bold italic;
+  font-size: 16px;
+  background-image: url("imagenes/Campo.jpg");
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+.error-message {
+    color: #ff0000; /* Color rojo para resaltar el mensaje de error */
+    font-weight: bold; /* Texto en negrita para mayor énfasis */
+    margin-top: 5px; /* Espacio superior para separar el mensaje de otros elementos */
+}
+form {
+  font-family: bold italic;
+  font-size: 1.2em;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+input[type="text"],
+input[type="password"] {
+  font-family: bold italic;
+  font-size: 1.1em;
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-gris);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  background-color: white;
+}
+
+input[type="submit"] {
+  background-color: var(--color-amarillo);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 1.1em;
+}
+
+input[type="submit"]:hover {
+  background-color: #f5c100;
+}
+
+h1 {
+  color: var(--color-azul);
+  text-align: center;
+  margin-bottom: 30px;
+  font-family: fantasy;
+  font-size: 2.5em;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head name="title">
+	<c:set var="title" value="Listado usuarios" scope="request" />
+	<link rel="stylesheet" type="text/css" href="layout/ListadoCSS.css" />
+	<h:outputStylesheet library="primefaces" name="themes/cupertino/theme.css" />
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<h:outputScript library="primefaces" name="primefaces.js" />
+</h:head>
+<body>
+
+	<div class="tablaYTitulo">
+<h1>LISTADO USUARIOS</h1>
+<h:form >
+		<div class="tablaYTitulo">
+		
+		<p:outputLabel value="Filtrar por :" class="letra" />
+<p:selectOneMenu value="#{gestionUsuarios.filtro}">
+    <f:selectItem itemValue="nickname" itemLabel="Usuario" />
+    <f:selectItem itemValue="nombre" itemLabel="Nombre" />
+    <f:selectItem itemValue="apellido" itemLabel="Apellido" />
+    <f:selectItem itemValue="email" itemLabel="Mail" />
+    <f:selectItem itemValue="rol" itemLabel="Rol" />
+    <f:selectItem itemValue="titulo" itemLabel="Titulo" />
+    <f:selectItem itemValue="cedula" itemLabel="Cedula" />
+    <f:selectItem itemValue="horas" itemLabel="Horas" />
+</p:selectOneMenu>
+<br></br>
+<p:inputText id="Valor" class="controls" value="#{gestionUsuarios.valor}" />
+<h:commandButton class="botons" value="Filtrar"
+				action="#{gestionUsuarios.seleccionarUsuarios}" />
+				</div>
+		<p:dataTable  value="#{gestionUsuarios.usuariosSeleccionados}"
+			var="usuario" styleClass="employeeTable"
+			headerClass="employeeTableHeader"
+			rowClasses="employeeTableOddRow,employeeTableEvenRow">
+			<p:column sortBy="#{usuario.id}">
+				<f:facet name="header">ID</f:facet>    				
+      		#{usuario.id}
+   		</p:column>
+
+
+			<p:column sortBy="#{usuario.nickname}">
+				<f:facet name="header">Usuario</f:facet>    				
+      		#{usuario.nickname}
+   		</p:column>
+
+			<p:column sortBy="#{usuario.nombre}">
+				<f:facet name="header">Nombre</f:facet>
+		      #{usuario.nombre}
+		</p:column>
+
+			<p:column sortBy="#{usuario.apellido}">
+				<f:facet name="header">Apellido</f:facet>
+      		#{usuario.apellido}
+   		</p:column>
+
+			<p:column sortBy="#{usuario.email}">
+				<f:facet name="header">Email</f:facet>
+      		#{usuario.email}
+		</p:column>
+
+
+			<p:column sortBy="#{usuario.rol}">
+				<f:facet name="header">Rol</f:facet>
+      		#{usuario.rol}
+		</p:column>
+
+			<p:column sortBy="#{usuario.titulo}">
+				<f:facet name="header">Titulo</f:facet>
+      		#{usuario.titulo}
+		</p:column>
+
+			<p:column sortBy="#{usuario.cedula}">
+				<f:facet name="header">Cedula</f:facet>
+      		#{usuario.cedula}
+		</p:column>
+
+			<p:column sortBy="#{usuario.horas}">
+				<f:facet name="header">Horas</f:facet>
+      		#{usuario.horas}
+		</p:column>
+        
+
+			<p:column>
+				<f:facet name="header">Ver Detalle</f:facet>
+				<h:link value="Ver detalle" outcome="AltaUsuario_copia.xhtml">
+					<f:param name="id" value="${usuario.id}" />
+					<f:param name="modalidad" value="view" />
+
+				</h:link>
+			</p:column>
+			
+	
+
+
+
+		</p:dataTable>
+        
+
+		<br />
+		
+			<h:commandButton class="botons" value="Listar Usuarios"
+				action="#{gestionUsuarios.seleccionarUsuarios}" />
+
+
+			<h:commandButton class="botons" value="Nuevo Usuario" action="#{gestionUsuario.reset}"/>
+		</h:form>
+	</div>
+</body>
+</html>

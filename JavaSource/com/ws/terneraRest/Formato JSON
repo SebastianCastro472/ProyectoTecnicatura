@@ -1,0 +1,29 @@
+
+ALTA TERNERA
+{
+        "fechaNacimiento": "22/12/22",
+        "id_guachera": 4,
+        "caravanaSnig": 58,
+        "caravanaTambo": 4,
+        "idMadre": 1,
+        "idPadre": 1,
+        "pesoAlNacer": 16,
+        "raza": "angus",
+        "tipoDeParto": "natural"
+    }
+ALTA HISTORICO 
+{
+        "idTernera": "4",
+        "nombre": "Gripe",
+        "variante": "Fiebre",
+        "Severidad": 2,
+        "fechaRegistro": "12-08-2020"
+    }
+ALTA ALIMENTACION
+{
+        "marca": "A",
+        "nombre": "B",
+        "cantidad": 58,
+        "fecha": "12/04/21",
+        "idTernera": 5     
+    }

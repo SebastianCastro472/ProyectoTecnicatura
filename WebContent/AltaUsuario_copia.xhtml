@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://java.sun.com/jsf/html"
+	xmlns:s="http://primefaces.org/ui">
+
+<h:head name="title">
+	<c:set var="title" value="Datos de Usuario" scope="request" />
+	<link rel="stylesheet" type="text/css" href="layout/FormulariosCSS.css" />
+</h:head>
+
+<body class="alta">
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{gestionUsuario.id}" />
+		<f:viewParam name="modalidad" value="#{gestionUsuario.modalidad}" />
+		<f:event type="preRenderView"
+			listener="#{gestionUsuario.preRenderViewListener}" />
+	</f:metadata>
+
+	<p:messages id="messages" showDetail="true" globalOnly="true"
+		closable="true" />
+	<div class="Registro">
+
+		<h:form id="idDatosUsuarios">
+		
+			<h4>ALTA USUARIO</h4>
+			
+			<p:panelGrid columns="3">
+
+				<p:outputLabel value="Nombre de usuario:" class="letra" />
+				<s:inputText id="nickname" class="controls" required="true"
+				requiredMessage="Ingrese un nombre de usuario" minlength="8" 
+				value="#{gestionUsuario.usuarioSeleccionado.nickname}"
+				disabled="#{!gestionUsuario.modoEdicion}" />
+				<p:message for="nickname" style="font-size:10px; color:#A50000" />
+
+				<p:outputLabel value="Nombre:" class="letra" />
+				<s:inputText id="nombre" class="controls" required="true"
+				requiredMessage="Ingrese un nombre"
+					value="#{gestionUsuario.usuarioSeleccionado.nombre}"
+					disabled="#{!gestionUsuario.modoEdicion}" />
+				<p:message for="nombre" style="font-size:10px; color:#A50000" />
+
+				<p:outputLabel value="Apellido:" class="letra" />
+				<s:inputText id="apellido" class="controls" required="true"
+				requiredMessage="Ingrese un apellido"
+					value="#{gestionUsuario.usuarioSeleccionado.apellido}"
+					disabled="#{!gestionUsuario.modoEdicion}" />
+				<p:message for="apellido" style="font-size:10px; color:#A50000" />
+
+				<p:outputLabel value="Email:" class="letra" />
+				<s:inputText id="email" class="controls" required="true"
+				requiredMessage="Ingrese un email"
+					value="#{gestionUsuario.usuarioSeleccionado.email}"
+					disabled="#{!gestionUsuario.modoEdicion}" />
+				<p:message for="email" style="font-size:10px; color:#A50000" />
+
+				<p:outputLabel value="Clave:" class="letra" />
+
+				<p:inputSecret id="clave" class="controls" required="true"
+					requiredMessage="Ingrese una clave"
+					value="#{gestionUsuario.usuarioSeleccionado.clave}"
+					disabled="#{!gestionUsuario.modoEdicion}" />
+				<p:message for="clave" style="font-size:10px; color:#A50000" />
+
+				<p:outputLabel value="Rol:" class="letra" />
+				<p:selectOneMenu id="rol"  required="true"
+				requiredMessage="Seleccione un rol"
+					value="#{gestionUsuario.usuarioSeleccionado.rol}"
+					disabled="#{!gestionUsuario.modoEdicion}">
+					<f:selectItem itemValue="" itemLabel="" />
+					<f:selectItem itemValue="ADMINISTRADOR" itemLabel="ADMINISTRADOR" />
+					<f:selectItem itemValue="ENCARGADO" itemLabel="ENCARGADO" />
+					<f:selectItem itemValue="PERSONAL" itemLabel="PERSONAL" />
+				</p:selectOneMenu>
+				<p:message for="rol" style="font-size:10px; color:#A50000" />
+
+				<p:outputLabel value="Titulo:" class="letra" />
+				<s:inputText id="titulo" class="controls" required="true"
+				requiredMessage="Ingrese un titulo"
+					value="#{gestionUsuario.usuarioSeleccionado.titulo}"
+					disabled="#{!gestionUsuario.modoEdicion}" />
+				<p:message for="titulo" style="color:#A50000" />
+
+				<p:outputLabel value="Cedula:" class="letra" />
+				<s:inputText id="cedula" class="controls" required="true"
+				requiredMessage="Ingrese una cedula"
+					value="#{gestionUsuario.usuarioSeleccionado.cedula}"
+					disabled="#{!gestionUsuario.modoEdicion}" />
+				<p:message for="cedula" style="color:#A50000" />
+
+				<p:outputLabel value="Horas(diarias):" class="letra" />
+				<s:inputText id="horas" class="controls" required="true"
+				requiredMessage="Ingrese un numero de horas"
+					value="#{gestionUsuario.usuarioSeleccionado.horas}"
+					disabled="#{!gestionUsuario.modoEdicion}" />
+				<p:message for="horas" style="color:#A50000" />
+
+			</p:panelGrid>
+			<div class="boxSubmit">
+				<h:commandButton class="botons" id="idModificar" value="Modificar"
+					rendered="#{!gestionUsuario.modoEdicion}">
+					<f:param name="id" value="${gestionUsuario.id}" />
+					<f:param name="modalidad" value="update" />
+				</h:commandButton>
+				<h:commandButton class="botons" value="Guardar"
+					action="#{gestionUsuario.salvarCambios}" />
+					
+				<h:commandButton class="botons" value="Eliminar"
+					action="#{gestionUsuario.eliminarUsuario(gestionUsuario.usuarioSeleccionado.id)}"
+					rendered="#{!gestionUsuario.modoEdicion}" />
+					
+					<h:commandButton class="botons" value="Limpiar"
+					action="#{gestionUsuario.reset}"/>
+
+				<h:commandButton class="botons" id="idVolver" value="Listar"
+					action="listaUsuarios_copia">
+					<f:ajax />
+				</h:commandButton>
+
+
+			</div>
+
+
+
+
+
+		</h:form>
+
+
+	</div>
+</body>
+</html>

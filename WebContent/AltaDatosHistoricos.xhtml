@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://java.sun.com/jsf/html">
+
+
+
+
+
+<h:head name="title">
+	<c:set var="title" value="Datos de Ternera" scope="request" />
+	<link rel="stylesheet" type="text/css" href="layout/layout.css" />
+</h:head>
+
+
+
+
+<body>
+
+	<!-- TITULO -->
+	<div class="titulo">
+		<span> Sistema de Gestión del Personal</span>
+
+	</div>
+	<br />
+	<!-- SUB-TITULO - LISTADO TerneraS -->
+	<div class="boxsubTitleListado">
+		<div class="subTitle">
+			<span> Ingreso de Ternera</span>
+		</div>
+	</div>
+	<br />
+
+	
+	<f:metadata>
+		<f:viewParam name="id" value="#{gestionTernera.id}" />
+		<f:viewParam name="modalidad" value="#{gestionTernera.modalidad}" />
+		<f:event type="preRenderView"
+			listener="#{gestionTernera.preRenderViewListener}" />
+	</f:metadata>
+
+
+	<p:messages id="messages" showDetail="true" globalOnly="true"
+		closable="true" />
+	<div class="boxFormTable">
+	
+		<h:form id="idDatosTerneras">
+
+
+
+			<p:panelGrid columns="3">
+
+				<p:outputLabel value="ID" class="id" />
+				<p:inputText id="id" class="id"
+					value="#{gestionTernera.terneraSeleccionado.idTernera}" disabled="true" />
+				<p:message for="id" style="color:red" />
+
+				<p:outputLabel value="ID Madre:" />
+				<p:inputText id="idMadre" class="input"
+					value="#{gestionTernera.terneraSeleccionado.idMadre}"
+					disabled="#{!gestionTernera.modoEdicion}" />
+				<p:message for="idMadre" style="color:red" />
+
+				<p:outputLabel value="ID Padre:" />
+				<p:inputText id="idPadre" class="input"
+					value="#{gestionTernera.terneraSeleccionado.idPadre}"
+					disabled="#{!gestionTernera.modoEdicion}" />
+				<p:message for="idPadre" style="color:red" />
+
+				<p:outputLabel value="Raza:" />
+				<p:inputText id="raza" class="input"
+					value="#{gestionTernera.terneraSeleccionado.raza}"
+					disabled="#{!gestionTernera.modoEdicion}" />
+				<p:message for="raza" style="color:red" />
+
+				<p:outputLabel value="Tipo de parto:" />
+				<p:inputText id="tipoDeParto" class="input"
+					value="#{gestionTernera.terneraSeleccionado.tipoDeParto}"
+					disabled="#{!gestionTernera.modoEdicion}" />
+				<p:message for="ipoDeParto" style="color:red" />
+
+				<p:outputLabel value="Caravana del tambo:" />
+				<p:inputText id="caravanaTambo" class="input"
+					value="#{gestionTernera.terneraSeleccionado.caravanaTambo}"
+					disabled="#{!gestionTernera.modoEdicion}" />
+				<p:message for="caravanaTambo" style="color:red" />
+
+				<p:outputLabel value="Caravana SNIG:" />
+				<p:inputText id="caravanaSnig" class="input"
+					value="#{gestionTernera.terneraSeleccionado.caravanaSnig}"
+					disabled="#{!gestionTernera.modoEdicion}" />
+				<p:message for="caravanaSnig" style="color:red" />
+
+				<p:outputLabel value="Peso de nacimiento:" />
+				<p:inputText id="pesoAlNacer" class="input"
+					value="#{gestionTernera.terneraSeleccionado.pesoAlNacer}"
+					disabled="#{!gestionTernera.modoEdicion}" />
+				<p:message for="pesoAlNacer" style="color:red" />
+
+				<p:outputLabel value="fecha de nacimiento:" />
+				<p:inputText id="fechaNacimiento" class="input"
+					value="#{gestionTernera.terneraSeleccionado.fechaNacimiento}"
+					disabled="#{!gestionTernera.modoEdicion}" />
+				<p:message for="fechaNacimiento" style="color:red" />
+
+				<p:outputLabel value="Guachera:" />
+				<p:inputText id="id_guachera" class="input"
+					value="#{gestionTernera.terneraSeleccionado.id_guachera}"
+					disabled="#{!gestionTernera.modoEdicion}" />
+				<p:message for="id_guachera" style="color:red" />
+
+			</p:panelGrid>
+			<div class="boxSubmit">
+
+
+				<h:commandButton class="modificarButton" id="idModificar"
+					value="Modificar" rendered="#{!gestionUsuario.modoEdicion}">
+					<f:param name="id" value="${gestionTernera.id}" />
+					<f:param name="modalidad" value="update" />
+
+
+				</h:commandButton>
+
+				<h:commandButton class="saveButton" value="Guardar"
+					action="#{gestionTernera.salvarCambios}" />
+					
+					<h:commandButton class="deleteButton" value="Eliminar"
+					action="#{gestionTernera.eliminarTernera(gestionTernera.terneraSeleccionado.idTernera)}"
+					 rendered="#{!gestionUsuario.modoEdicion}" 
+					 />
+
+				<h:commandButton class="volverButton" id="idVolver" value="Listar"
+					action="listaTerneras">
+					<f:ajax />
+				</h:commandButton>
+
+
+			</div>
+
+
+
+
+
+		</h:form>
+
+
+	</div>
+</body>
+</html>

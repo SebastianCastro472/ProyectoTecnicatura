@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://java.sun.com/jsf/html"
+	xmlns:s="http://primefaces.org/ui">
+
+
+
+
+
+<h:head name="title">
+	<c:set var="title" value="Datos de Alimentacion" scope="request" />
+	<link rel="stylesheet" type="text/css" href="layout/FormulariosCSS.css" />
+</h:head>
+
+
+
+
+<body class="alta">
+
+	
+
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{gestionAlimentacion.id}" />
+		<f:viewParam name="modalidad" value="#{gestionAlimentacion.modalidad}" />
+		<f:event type="preRenderView"
+			listener="#{gestionAlimentacion.preRenderViewListener}" />
+	</f:metadata>
+
+
+	<p:messages id="messages" showDetail="true" globalOnly="true"
+		closable="true" />
+	<div class="Registro">
+		<h:form id="idDatosAlimentacion">
+
+<h4>REGISTRAR ALIMENTACION</h4>
+
+			<p:panelGrid columns="3">
+
+
+
+				<p:outputLabel value="ID ternera:" class="letra" />
+				<s:inputText id="idTernera" class="controls"
+					value="#{gestionAlimentacion.alimentacionSeleccionado.idTernera}"
+					disabled="#{!gestionAlimentacion.modoEdicion}" >
+					
+				</s:inputText>
+				<p:message for="idTernera" style="color:red"  />
+
+
+				<p:outputLabel value="Nombre(alimento):" class="letra" />
+				<p:selectOneMenu id="nombre"  required="true"
+				requiredMessage="Seleccione un alimento"
+					value="#{gestionAlimentacion.alimentacionSeleccionado.nombre}"
+					disabled="#{!gestionAlimentacion.modoEdicion}" >
+					
+					<f:selectItem itemValue="Calostro" itemLabel="Calostro" />
+					<f:selectItem itemValue="Leche" itemLabel="Leche" />
+					<f:selectItem itemValue="Sustituto lácteo" itemLabel="Sustituto lácteo" />
+					<f:selectItem itemValue="Iniciador" itemLabel="Iniciador" />
+					<f:selectItem itemValue="Ración" itemLabel="Ración" />
+				</p:selectOneMenu>
+				<p:message for="nombre" style="font-size:10px; color:#A50000" />
+
+				<p:outputLabel value="Marca(alimento):" class="letra" />
+				<s:inputText id="marca" class="controls"
+					value="#{gestionAlimentacion.alimentacionSeleccionado.marca}"
+					disabled="#{!gestionAlimentacion.modoEdicion}" >
+					<f:validateRequired />
+				</s:inputText>
+				<p:message for="marca" style="color:red" />
+
+				<p:outputLabel value="Cantidad(L/KG):" class="letra" />
+				<s:inputText id="cantidad" class="controls"
+					value="#{gestionAlimentacion.alimentacionSeleccionado.cantidad}"
+					disabled="#{!gestionAlimentacion.modoEdicion}" >
+					<f:validateRequired />
+				</s:inputText>
+				<p:message for="cantidad" style="color:red" />
+
+				
+				<s:outputLabel value="Fecha Registro:" class="letra" />
+				<s:calendar id="fechaRegistro" value="#{gestionAlimentacion.alimentacionSeleccionado.fecha}"
+   				  showOn="button" pattern="dd/MM/yy" />
+				<p:message for="fechaNacimiento" style="color:red" />
+
+
+			</p:panelGrid>
+			<div class="boxSubmit">
+<h:commandButton class="botons" value="Guardar"
+					action="#{gestionAlimentacion.salvarCambios}" />
+
+
+
+				
+
+
+
+
+			</div>
+
+
+
+
+
+		</h:form>
+
+
+	</div>
+</body>
+</html>

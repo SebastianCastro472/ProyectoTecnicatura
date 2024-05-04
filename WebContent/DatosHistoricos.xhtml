@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head name="title">
+	<c:set var="title" value="Listado usuarios" scope="request" />
+	<link rel="stylesheet" type="text/css" href="layout/ListadoCSS.css" />
+</h:head>
+
+<body>
+
+	<div class="tablaYTitulo">
+	<h1>CARGA DE DATOS HISTORICOS</h1>
+	    <h:form enctype="multipart/form-data">
+        <p:fileUpload  value="#{gestionInformes.file}" mode="simple" class="" />
+        <br></br>
+
+        <h:commandButton value="Subir Archivo"  class="botons"
+                         action="#{gestionInformes.upload()}" /> 
+                       
+        <h:commandButton class="botons" value="Listar Datos históricos"
+				action="#{gestionInformes.seleccionarHistoricos}" />                              
+                      
+        <h:commandButton value="Descargar" class="botons" actionListener="#{gestionInformes.descargar()}" />   
+    </h:form>
+
+		<p:dataTable value="#{gestionInformes.historicosEnfermedadSeleccionados}"
+			var="historico" styleClass="employeeTable"
+			headerClass="employeeTableHeader"
+			rowClasses="employeeTableOddRow,employeeTableEvenRow">
+
+			<p:column sortBy="#{historico.id}">
+				<f:facet name="header">ID</f:facet>    				
+      		#{historico.id}
+   		</p:column>
+
+			<p:column sortBy="#{historico.idTernera}">
+				<f:facet name="header">ID Ternera</f:facet>    				
+      		#{historico.idTernera}
+   		</p:column>
+
+
+			<p:column sortBy="#{historico.nombre}">
+				<f:facet name="header">Nombre</f:facet>    				
+      		#{historico.nombre}
+   		</p:column>
+
+			<p:column sortBy="#{historico.variante}">
+				<f:facet name="header">Variante</f:facet>
+		      #{historico.variante}
+		</p:column>
+
+			<p:column sortBy="#{historico.severidad}">
+				<f:facet name="header">Severidad</f:facet>
+      		#{historico.severidad}
+   		</p:column>
+
+			<p:column sortBy="#{historico.fechaRegistro}">
+				<f:facet name="header">Fecha Registro</f:facet>
+      		#{historico.fechaRegistro}
+		</p:column>
+
+
+		</p:dataTable>
+
+	</div>
+</body>
+</html>

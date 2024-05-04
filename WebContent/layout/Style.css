@@ -1,0 +1,477 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+body{
+    background-image: url("imagenes/Campo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0; 
+    padding: 0; 
+}
+
+body.alta{
+	background-color: red;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0; 
+    padding: 0; 
+}
+/*--Header------------------------------------------------------------------------------*/
+.container__menu{
+    width: 100%;
+    height: 100%;
+    background: #023877;
+    padding: 0px 20px ;
+}
+.menu{
+    max-width: 1200px;
+    margin: auto;
+    height: 100%;
+}
+
+ ul{
+    height: 100%;
+    display: flex;
+}
+ ul li{
+    height: 100%;
+    list-style: none;
+    position: relative;
+}
+ul>li>a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 300ms ease;
+    color: aliceblue;
+}
+ul>li>a:hover{
+    transform: scale(1.1);
+    background:#0074C7 ;
+    box-shadow:0px 0px 10px 0px rgba(0,0,0,0.5);
+}
+
+ul li ul{
+    width: 370px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    left: -5px;
+    padding: 14px 0px ;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 10;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    transition: all 300ms ease ;
+}
+
+ul li:hover ul{
+    opacity: 1;
+    visibility:visible ;
+    top: 70px;
+
+}
+
+
+ul li ul::before{
+    content:"";
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid white;
+    position: absolute;
+    top: -12px;
+    left: 20px;
+}
+ul li ul li a{
+    display: block;
+    color: #0099E9;
+    padding: 6px;
+    padding-left: 14px;
+    margin-top: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 300ms ease;
+}
+ ul li ul li a:hover{
+    background: #0074C7;
+    color: #fff;
+    transform: scale(1.1);
+    padding-left: 30px ;
+    font-size: 14px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    background-color: #00FF0000;
+  }
+#header img {
+    height: 100px;
+    margin-right: 20px;
+  }
+  #header h1 {
+    font-size: 36px;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  /*--Cuerpo_Principal------------------------------------------------------------------------------*/
+.menu li img {
+    width: 20px;
+    height: 20px;
+}
+
+  /*--Cuerpo_Alta------------------------------------------------------------------------------*/
+.Registro{
+    
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background:#023877 ;
+    padding: 30px;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+}
+
+.Registro h4{
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.controls{
+    width: 100%;
+    height:50px;
+    background: #2e4f70;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #0074C7;
+    font-family: 'calibri';
+    font-size: 18px;
+}
+
+
+/*----------------------------------------boton prueba*/
+.botons{
+    width:90px;
+    height:30px;
+    background: linear-gradient(to left top, #0074C7 50%, #0074C7 50%);
+    border-style: none;
+    color:#fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-family: 'calibri';
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    padding: 2px;
+    border : 2px;
+    overflow: hidden;
+    transition: all .5s;
+    box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+}
+.botons span{
+    position: absolute;
+    display: block;
+}
+.botons span:nth-child(1){
+    height: 3px;
+    width:90px;
+    top:0px;
+    left:-90px;
+    background: linear-gradient(to right, rgba(0,0,0,0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span1 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes span1{
+    0%{
+        left:-200px
+    }
+    100%{
+        left:200px;
+    }
+}
+.botons span:nth-child(2){
+    height: 70px;
+    width: 3px;
+    top:-70px;
+    right:0px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #f6e58d);
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span2 2s linear infinite;
+    animation-delay: 2s;
+}
+@keyframes span2{
+    0%{
+        top:-70px;
+    }
+    100%{
+        top:70px;
+    }
+}
+.botons span:nth-child(3){
+    height:3px;
+    width:200px;
+    right:-200px;
+    bottom: 0px;
+    background: linear-gradient(to left, rgba(0,0,0,0), #f6e58d);
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    animation: span3 2s linear infinite;
+    animation-delay: 3s;
+}
+@keyframes span3{
+    0%{
+        right:-200px;
+    }
+    100%{
+        right: 200px;
+    }
+}
+
+.botons span:nth-child(4){
+    height:70px;
+    width:3px;
+    bottom:-70px;
+    left:0px;
+    background: linear-gradient(to top, rgba(0,0,0,0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+    animation: span4 2s linear infinite;
+    animation-delay: 4s;
+}
+@keyframes span4{
+    0%{
+        bottom: -70px;
+    }
+    100%{
+        bottom:70px;
+    }
+}
+
+.botons:hover{
+    transition: all .5s;
+    transform: rotate(-3deg) scale(1.1);
+    box-shadow: 0px 3px 5px rgba(0,0,0,.4);
+}
+.botons:hover span{
+    animation-play-state: paused;
+}
+  /*--Cuerpo_Listado------------------------------------------------------------------------------*/
+.Cuerpo_listado{
+    border: solid 1 px rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+table{
+    color: white;
+    font-size: 14px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background: #0099E9;
+}
+thead{
+    background: rgba(243,140,210,0.4);
+}
+th{
+    padding: 20px 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+td{
+    padding: 15px;
+    border-bottom: solid 1px rgba(255,255,255,0.2);
+}
+tbody tr{
+    cursor:pointer;
+}
+tbody tr:hover{
+    background: rgba(243,103,199,0.4);
+}
+/*--contenedores de alta y listado--------------------------------------------------------------------*/
+.container {
+  display: flex;
+  flex-direction: row; /* Alinea los elementos en fila */
+  height: 100vh;
+}
+
+.containerInforme {
+   display: flex;
+    flex-direction: column; /* Asegura que los elementos hijos se apilen verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    text-align: center; /* Alinea el texto al centro */
+    width: auto;
+    height: auto;
+    background: #023877;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+}
+
+
+/* Estilo para la clase "gestion" */
+.gestion {
+	background:rgba(2, 56, 119, 0.5);
+  padding: 20px; /* Espacio alrededor de "gestion" */
+  height: 100%; /* Establece la altura de "gestion" al 100% del contenedor */
+  width:300px;
+  overflow: auto; /* Agrega desplazamiento vertical si el contenido es largo */
+  display: flex; /* Usa Flexbox para centrar elementos */
+  flex-direction: column; /* Alinea elementos verticalmente */
+  align-items: center; /* Centra horizontalmente los elementos */
+  text-align: center; /* Centra el texto horizontalmente */
+  border: 2px solid #023877;
+}
+.gestion h2{
+	font-size:26px;
+	color:white;
+}
+/* Estilo para la clase "alta" */
+.alta {
+  flex: 1; /* Toma todo el espacio disponible en el contenedor */
+  padding: 20px; /* Espacio alrededor de "alta" */
+  height: 100%; /* Establece la altura de "alta" al 100% del contenedor */
+  overflow: auto; /* Agrega desplazamiento vertical si el contenido es largo */
+}
+/*--Boton de gestion--------------------------------------------------------------------------------------------*/
+.botons1{
+    width:250px;
+    height:30px;
+    background: linear-gradient(to left top, #0074C7 50%, #0074C7 50%);
+    border-style: none;
+    color:#fff;
+    font-size: 15px;
+    letter-spacing: 3px;
+    font-family: 'calibri';
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    margin: 10px;
+    padding: 5px;
+    border : 2px;
+    overflow: hidden;
+    transition: all .5s;
+    box-shadow: 0px 1px 2px rgba(0,0,0,.2);
+}
+.botons1 span{
+    position: absolute;
+    display: block;
+}
+.botons1 span:nth-child(1){
+    height: 3px;
+    width:90px;
+    top:0px;
+    left:-90px;
+    background: linear-gradient(to right, rgba(0,0,0,0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span1 2s linear infinite;
+    animation-delay: 1s;
+}
+@keyframes span1{
+    0%{
+        left:-200px
+    }
+    100%{
+        left:200px;
+    }
+}
+.botons1 span:nth-child(2){
+    height: 70px;
+    width: 3px;
+    top:-70px;
+    right:0px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), #f6e58d);
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    animation: span2 2s linear infinite;
+    animation-delay: 2s;
+}
+@keyframes span2{
+    0%{
+        top:-70px;
+    }
+    100%{
+        top:70px;
+    }
+}
+.botons1 span:nth-child(3){
+    height:3px;
+    width:200px;
+    right:-200px;
+    bottom: 0px;
+    background: linear-gradient(to left, rgba(0,0,0,0), #f6e58d);
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    animation: span3 2s linear infinite;
+    animation-delay: 3s;
+}
+@keyframes span3{
+    0%{
+        right:-200px;
+    }
+    100%{
+        right: 200px;
+    }
+}
+
+.botons1 span:nth-child(4){
+    height:70px;
+    width:3px;
+    bottom:-70px;
+    left:0px;
+    background: linear-gradient(to top, rgba(0,0,0,0), #f6e58d);
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+    animation: span4 2s linear infinite;
+    animation-delay: 4s;
+}
+@keyframes span4{
+    0%{
+        bottom: -70px;
+    }
+    100%{
+        bottom:70px;
+    }
+}
+
+.botons1:hover{
+    transition: all .5s;
+    transform: rotate(-3deg) scale(1.1);
+    box-shadow: 0px 3px 5px rgba(0,0,0,.4);
+}
+.botons1:hover span{
+    animation-play-state: paused;
+}

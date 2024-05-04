@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://java.sun.com/jsf/html"
+	xmlns:s="http://primefaces.org/ui">
+
+
+
+
+
+<h:head name="title">
+	<c:set var="title" value="Datos de Ternera" scope="request" />
+	<link rel="stylesheet" type="text/css" href="layout/FormulariosCSS.css" />
+</h:head>
+
+
+
+
+
+<body class="alta">
+	<p:messages id="messages" showDetail="true" globalOnly="true"
+		closable="true" />
+	<div class="Registro">
+
+		<h:form id="form">
+
+			<h4>Generar informe de
+			costo de alimentar 
+			una ternera
+			</h4>
+
+			<p:panelGrid columns="3">
+
+
+				<p:outputLabel value="ID Ternera:" class="letra" />
+				<s:inputText id="idter" class="controls" required="true"
+				requiredMessage="Ingrese un ID valido"
+				value="#{gestionInformes.caravanaInformeAlimTernera}" >
+				<f:validateRequired />
+					
+				</s:inputText>
+				<p:message for="idter" style="color:red" detail="Debes ingresar un número" />
+
+			
+				
+			
+				
+				<s:outputLabel value="Fecha inicio:" class="letra" />
+				<s:calendar id="Fechainicio"  value="#{gestionInformes.fechaInicioInformeAlimTernera1}"
+   				  showOn="button" pattern="dd/MM/yy" />
+				<p:message for="fechaNacimiento" style="color:red" />
+				
+				
+				
+				
+				<s:outputLabel value="Fecha Fin:" class="letra" />
+				<s:calendar id="FechaFin"  value="#{gestionInformes.fechaFinInformeAlimTernera1}"
+   				  showOn="button" pattern="dd/MM/yy" />
+				<p:message for="fechaNacimiento" style="color:red" />
+
+			</p:panelGrid>
+			<div class="boxSubmit">
+
+				<h:commandButton class="botons" value="CALCULAR" action="#{gestionInformes.informeCostoAlimTernera()}" 
+					 />
+					 <h:commandButton class="botons" value="NUEVO INFORME" actionListener="#{gestionInformes.limpiarCamposAlim}" />
+
+			</div>
+				<p:outputLabel value="Costo de alimentacion:" class="letra" />
+				<p:inputText id="id" class="controls" value="#{gestionInformes.resultadoInformeAlimTernera}"  	  disabled="true" />
+				<p:message for="id" style="color:red" />
+				
+				<h:commandButton class="botons" value="DESCARGAR" action="#{gestionInformes.descargarListaComoCSV()}"
+					 />
+					 
+				
+
+
+
+
+		</h:form>
+
+
+	</div>
+</body>
+</html>

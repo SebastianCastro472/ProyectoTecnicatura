@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:p="http://java.sun.com/jsf/html"
+	xmlns:s="http://primefaces.org/ui">
+
+<h:head name="title">
+	<c:set var="title" value="Datos de Alimento" scope="request" />
+	<link rel="stylesheet" type="text/css" href="layout/FormulariosCSS.css" />
+</h:head>
+
+<body>
+
+	<f:metadata>
+		<f:viewParam name="id" value="#{gestionAlimento.id}" />
+		<f:viewParam name="modalidad" value="#{gestionAlimento.modalidad}" />
+		<f:event type="preRenderView"
+			listener="#{gestionAlimento.preRenderViewListener}" />
+	</f:metadata>
+
+
+	<p:messages id="messages" showDetail="true" globalOnly="true"
+		closable="true" />
+	<div class="Registro">
+		<h:form id="idDatosAlimentos">
+
+<h4>ALTA DE ALIMENTO</h4>
+
+			<p:panelGrid columns="3">
+
+		
+
+				<p:outputLabel value="Marca:" class="letra" />
+				<s:inputText id="marca" class="controls"
+					value="#{gestionAlimento.alimentoSeleccionado.marca}"
+					disabled="#{!gestionAlimento.modoEdicion}"
+					  >
+					<f:validateRequired />
+				</s:inputText>
+				<p:message for="marca" style="color:red" />
+				
+				<p:outputLabel value="Nombre:" class="letra" />
+				<p:selectOneMenu id="nombre"  required="true"
+				requiredMessage="Seleccione un alimento"
+					value="#{gestionAlimento.alimentoSeleccionado.nombre}"
+					disabled="#{!gestionAlimento.modoEdicion}">
+					<f:selectItem itemValue="" itemLabel="" />
+					<f:selectItem itemValue="Calostro" itemLabel="Calostro" />
+					<f:selectItem itemValue="Leche" itemLabel="Leche" />
+					<f:selectItem itemValue="Sustituto lácteo" itemLabel="Sustituto lácteo" />
+					<f:selectItem itemValue="Iniciador" itemLabel="Iniciador" />
+					<f:selectItem itemValue="Ración" itemLabel="Ración" />
+				</p:selectOneMenu>
+				<p:message for="nombre" style="font-size:10px; color:#A50000" />
+
+				<p:outputLabel value="Costo(L/KG):" class="letra" />
+				<s:inputText id="costo" class="controls"
+					value="#{gestionAlimento.alimentoSeleccionado.costo}"
+					disabled="#{!gestionAlimento.modoEdicion}"
+					  >
+					<f:validateRequired />
+					
+				</s:inputText>
+				<p:message for="costo" style="color:red" detail="Debes ingresar un número" />
+
+				<p:outputLabel value="Cantidad(L/KG):"  class="letra"/>
+				<s:inputText id="cantidad" class="controls"
+					value="#{gestionAlimento.alimentoSeleccionado.cantidad}"
+					disabled="#{!gestionAlimento.modoEdicion}"
+					  >
+					<f:validateRequired />
+					
+				</s:inputText>
+				<p:message for="cantidad" style="color:red" detail="Debes ingresar un número" />
+
+	
+			</p:panelGrid>
+			<div class="boxSubmit">
+
+
+				<h:commandButton class="botons" id="idModificar"
+					value="Modificar" rendered="#{!gestionAlimento.modoEdicion}">
+					<f:param name="id" value="${gestionAlimento.id}" />
+					<f:param name="modalidad" value="update" />
+
+
+				</h:commandButton>
+
+				<h:commandButton class="botons" value="Guardar"
+					action="#{gestionAlimento.salvarCambios}" />
+					
+					<h:commandButton class="botons" value="Eliminar"
+					action="#{gestionAlimento.eliminarAlimento(gestionAlimento.alimentoSeleccionado.idAlimento)}"
+					 rendered="#{!gestionAlimento.modoEdicion}" 
+					 />
+					 
+					 <h:commandButton class="botons" value="Limpiar"
+					action="#{gestionAlimento.reset}"/>
+
+				<h:commandButton class="botons" id="idVolver" value="Listar"
+					action="listaAlimentos">
+					<f:ajax />
+				</h:commandButton>
+
+
+			</div>
+
+
+
+
+
+		</h:form>
+
+
+	</div>
+</body>
+</html>

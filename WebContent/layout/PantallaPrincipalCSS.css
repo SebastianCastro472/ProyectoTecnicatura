@@ -1,0 +1,171 @@
+iframe {
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+h2 {
+  font-size: 24px; 
+  font-weight: bold; 
+  color: #000; 
+  margin-left: 30px;
+  margin-bottom: 30px;
+  
+}
+body {
+    background-image: url("imagenes/Campo.jpg");
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+  }
+  #header {
+    display: flex;
+    align-items: center;
+  }
+  
+  #header img {
+    height: 100px;
+    margin-right: 20px;
+  }
+  
+  #header h1 {
+    font-size: 36px;
+    margin: 0;
+  }
+  
+  #buttons {
+    background-color: rgba(204, 204, 204, 0.5);
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    width: 98%;
+  }
+  
+  button {
+    background-color: #1c75bc;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+    margin-left: 10px;
+    box-sizing: border-box;
+  }
+  
+  button:hover {
+    background-color: #1c75bc;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #content {
+    background-color: rgba(204, 204, 204, 0.5);
+    border: 1px solid #ccc;
+    width: 350px;
+    height: 400px;
+    margin: 10px;
+    margin-top: 50px;
+    padding: 10px;
+    left: 35%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  #content_informes {
+    background-color: rgba(204, 204, 204, 0.5);
+    border: 1px solid #ccc;
+    width: 350px;
+    height: 400px;
+    margin: 10px;
+    margin-top: 50px;
+    padding: 10px;
+    left: 35%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  #seccion-3 {  
+    width: 50%; /* Establece un ancho de 200 pixels */
+    height: 650px; /* Establece un alto de 100 pixels */
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    align-items: left;
+    justify-content: left;
+    top: 30px;     
+}  
+#seccion-listado{
+	width: 80%; 
+    height: 650px; 
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    align-items: left;
+    justify-content: left;
+    top: 30px;
+}
+#content input[type="submit"] {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 250px; /* Cambiar el ancho a 100% */
+  height: 70px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin: auto ;
+  margin-top: 10px;
+}
+#content input[type="submit"]:hover {
+  background-color: #0056b3; /* Cambiar el color de fondo al pasar sobre el botón */
+}
+
+  input[type="submit"] {
+    background-color: #1c75bc;
+    border: none;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px;
+    width: 100%;
+    margin-left: 10px;
+    box-sizing: border-box;
+  }
+  input[type="submit"]:hover {
+    background-color: #1c75bc;
+    color: #fff;
+    cursor: pointer;
+  }
+  #content_informes input[type="submit"] {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 350px; /* Cambiar el ancho a 100% */
+  height: 60px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 11px;
+  margin: auto ;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#content_informes input[type="submit"]:hover {
+  background-color: #0056b3; /* Cambiar el color de fondo al pasar sobre el botón */
+}
+
